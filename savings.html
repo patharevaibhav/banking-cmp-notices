@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>DPDP CMP — Savings Account Notice (Product-Specific)</title>
 
-  <!-- Same CSS as your existing consolidated demo (keeps exact look & feel) -->
+  <!-- Same look & feel as your consolidated demo -->
   <style>
     :root{
       --bg:#0b1220;
@@ -32,19 +32,8 @@
                   var(--bg);
       color:var(--text);
     }
-    a{color:var(--accent)}
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 18px 64px;
-    }
-    header{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:18px;
-    }
+    .wrap{max-width: 980px;margin: 0 auto;padding: 28px 18px 64px;}
+    header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;}
     .brand{display:flex;gap:12px;align-items:center;}
     .logo{
       width:44px;height:44px;border-radius:14px;
@@ -54,9 +43,7 @@
       font-weight:800;letter-spacing:.5px;
     }
     h1{font-size: 18px;margin:0 0 6px;font-weight:800;}
-    .subtitle{
-      margin:0;color:var(--muted);font-size: 13px;line-height:1.4;max-width: 680px;
-    }
+    .subtitle{margin:0;color:var(--muted);font-size: 13px;line-height:1.4;max-width: 680px;}
 
     .toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
     .btn{
@@ -84,15 +71,13 @@
       padding: 8px 10px;
       border-radius: 999px;
       font-size: 12px;
-      display:flex;
-      align-items:center;
-      gap:8px;
+      display:flex;align-items:center;gap:8px;
     }
     .dot{width:8px;height:8px;border-radius:999px;background: rgba(255,255,255,.35);}
     .dot.good{background: var(--good)}
-    .dot.warn{background: var(--warn)}
-    .dot.bad{background: var(--bad)}
     .dot.accent{background: var(--accent)}
+    .dot.warn{background: var(--warn)}
+
     .grid{display:grid;grid-template-columns: 1fr;gap: 14px;}
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
@@ -103,10 +88,8 @@
     }
     .cardhead{
       padding: 14px 14px 12px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 12px;
+      display:flex;align-items:flex-start;justify-content:space-between;gap: 12px;
+      cursor:pointer;
     }
     .cardtitle{display:flex;align-items:flex-start;gap: 10px;min-width: 0;}
     .ico{
@@ -119,17 +102,14 @@
     .cardtitle h2{margin:0;font-size: 14px;font-weight: 850;line-height:1.2;}
     .meta{margin-top: 6px;display:flex;gap: 8px;flex-wrap:wrap;align-items:center;}
     .chip{
-      font-size: 12px;
-      color: var(--muted);
+      font-size: 12px;color: var(--muted);
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
-      padding: 6px 8px;
-      border-radius: 999px;
-      display:inline-flex;
-      align-items:center;
-      gap: 6px;
+      padding: 6px 8px;border-radius: 999px;
+      display:inline-flex;align-items:center;gap: 6px;
     }
     .chip strong{color: var(--text); font-weight:750}
+
     .toggleWrap{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex: 0 0 auto;}
     .status{font-size: 11.5px;color: var(--muted);text-align:right;max-width: 260px;line-height:1.2;}
     .toggle{
@@ -146,23 +126,34 @@
     .toggle[aria-checked="true"] .knob{transform: translateX(22px);}
 
     .body{padding: 0 14px 14px;border-top: 1px solid var(--line);background: rgba(15,23,42,.35);}
-    .section{padding: 12px 0;border-bottom: 1px dashed rgba(255,255,255,.10);}
-    .section:last-child{border-bottom:none}
+    .subcard{border:1px solid var(--line);background: rgba(255,255,255,.045);border-radius: 16px;padding: 12px;margin-top: 12px;}
+    .subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom: 8px;}
+    .subhead h3{margin:0;font-size: 13px;font-weight: 850;}
+    .submeta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+    .hint{color: var(--muted);font-size: 12px;line-height:1.4;margin-top: 8px;}
+
     .row{display:grid;grid-template-columns: 1fr;gap: 10px;}
     @media (min-width: 760px){.row{grid-template-columns: 1fr 1fr;gap: 12px;}}
     .label{color: var(--muted);font-size: 12px;margin-bottom: 6px;}
     ul{margin: 0;padding-left: 16px;color: var(--text);font-size: 13px;line-height: 1.45;}
     li{margin: 4px 0}
     .small{font-size: 12.5px;color: var(--text);line-height: 1.45;}
-    details{border:1px solid var(--line);background: rgba(255,255,255,.05);border-radius: 14px;padding: 10px 12px;}
-    details summary{cursor:pointer;font-weight: 750;font-size: 13px;color: var(--text);list-style:none;}
+
+    details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+    details summary{
+      cursor:pointer;font-weight: 750;font-size: 13px;color: var(--text);
+      list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    }
     details summary::-webkit-details-marker{display:none}
-    details .content{margin-top: 8px;color: var(--muted);font-size: 12.5px;line-height: 1.5;}
-    .subcard{border:1px solid var(--line);background: rgba(255,255,255,.045);border-radius: 16px;padding: 12px;margin-top: 12px;}
-    .subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom: 8px;}
-    .subhead h3{margin:0;font-size: 13px;font-weight: 850;}
-    .submeta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-    .hint{color: var(--muted);font-size: 12px;line-height:1.4;margin-top: 8px;}
+    .chev{color:var(--muted);font-size:12px}
+    details .content{margin-top: 10px;color: var(--muted);font-size: 12.5px;line-height: 1.55;}
+
     .footer{
       margin-top: 18px;border:1px solid var(--line);background: rgba(255,255,255,.05);
       border-radius: var(--radius);padding: 14px;
@@ -178,11 +169,6 @@
       display:flex;gap:10px;align-items:center;
     }
     .toast.show{opacity: 1;transform: translateX(-50%) translateY(-4px);}
-    .kbd{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 11px;color: var(--muted);border:1px solid var(--line);padding: 2px 6px;
-      border-radius: 8px;background: rgba(255,255,255,.04);
-    }
   </style>
 </head>
 
@@ -194,8 +180,7 @@
         <div>
           <h1>Savings Account — Product Notice for Consent</h1>
           <p class="subtitle">
-            Simple view first. Expand to see purposes, data categories, sharing, retention, and withdrawal impact.
-            Optional choices can be changed anytime.
+            Your data, your choice. Core account usage is mandatory. Optional choices are shown clearly and can be changed anytime.
           </p>
         </div>
       </div>
@@ -211,12 +196,12 @@
     <div class="pillrow">
       <div class="pill"><span class="dot good"></span>Mandatory (locked)</div>
       <div class="pill"><span class="dot accent"></span>Optional (toggle)</div>
-      <div class="pill"><span class="dot"></span><span>Demo: Press</span> <span class="kbd">S</span> <span>to simulate “Savings-only customer”</span></div>
+      <div class="pill"><span class="dot warn"></span>Details available (no extra steps to consent)</div>
     </div>
 
     <main class="grid" id="cards"></main>
 
-    <section class="footer" id="globalFooter">
+    <section class="footer">
       <h4>Your Rights</h4>
       <div class="cols">
         <div class="small">
@@ -246,19 +231,12 @@
   <div class="toast" id="toast"><span class="dot accent"></span><span id="toastText">Updated.</span></div>
 
   <script>
-    // -----------------------------
-    // Savings-only model (DPDP/BRD structured)
-    // -----------------------------
     const state = {
-      holdings: { savings: true },
       consents: {
-        // Savings: mandatory + optional groups
-        savings_core: { type: "mandatory", enabled: true, locked: true },
-        savings_comms: { type: "mandatory", enabled: true, locked: true },
-
-        // Optional: keep it minimal and non-overwhelming, but DPDP-complete in expanded view
-        savings_marketing: { type: "optional", enabled: false, locked: false },
-        savings_analytics: { type: "optional", enabled: false, locked: false },
+        savings_core:      { type: "mandatory", enabled: true,  locked: true },
+        savings_comms:     { type: "mandatory", enabled: true,  locked: true },
+        savings_marketing: { type: "optional",  enabled: false, locked: false },
+        savings_analytics: { type: "optional",  enabled: false, locked: false },
       }
     };
 
@@ -267,68 +245,79 @@
         id: "savings",
         icon: "🏦",
         title: "Savings Account",
-        chips: [
-          { label: "Account ID", value: "SB •••• 4821" }
-        ],
-        showWhen: () => state.holdings.savings,
+        chips: [{ label: "Account ID", value: "SB •••• 4821" }],
+        defaultExpanded: false,
         groups: [
           {
             groupId: "savings_core",
-            heading: "Core account operation (Locked)",
+            heading: "Core account operation + compliance + security",
             statusText: "Mandatory (locked)",
             toggleKey: "savings_core",
             locked: true,
-            sections: [
-              { label: "Purpose", bullets: [
-                "Open and maintain your account; process deposits/withdrawals/transfers",
-                "Meet legal and regulatory obligations (KYC/AML/audit where applicable)",
-                "Detect fraud and secure your account and channels"
-              ]},
-              { label: "Data we will use", bullets: [
-                "Identity & KYC details (PAN; Aadhaar only where permitted)",
-                "Contact details",
-                "Account details and transaction records",
-                "Compliance and audit logs",
-                "Digital banking/session logs (if enabled)"
-              ]},
-              { label: "Retention", text:
+
+            // Keep the visible part short: only Purpose shown upfront
+            purposeBullets: [
+              "Open and maintain your account; process deposits/withdrawals/transfers",
+              "Meet legal/regulatory obligations (KYC/AML/audit where applicable)",
+              "Protect you through fraud detection, risk controls, and security monitoring"
+            ],
+
+            // Put dense content inside one expander (minimal click impact)
+            details: {
+              dataBullets: [
+                "Identity & KYC (examples: name, date of birth, PAN; Aadhaar only where permitted)",
+                "Contact (mobile number, email, address)",
+                "Account identifiers (customer/CIF ID, account number)",
+                "Transactions (amount, date/time, counterparty/beneficiary reference, UPI/VPA where applicable)",
+                "Compliance & audit logs (KYC verification logs, consent logs, audit trail)",
+                "Digital banking/session logs (device ID, IP address, login timestamps — if enabled)"
+              ],
+              sharedWithBullets: [
+                "Regulators/authorities (where required by law)",
+                "Authorised processors for core banking/hosting/security",
+                "Payment and messaging infrastructure providers (as needed for service delivery)",
+                "Fraud/risk monitoring partners (for security controls)"
+              ],
+              retentionHtml:
                 "<strong>Minimum:</strong> While your account is active<br/>" +
                 "<strong>Maximum:</strong> As required by applicable banking/financial laws and regulators<br/>" +
-                "<strong>Expiry:</strong> After closure, retained per statutory timelines, then archived/anonymised/deleted as per policy"
-              }
-            ],
-            processors: [
-              "The Financial Institution (Data Fiduciary)",
-              "Authorised service providers (core banking, hosting, security) under safeguards",
-              "Regulators/authorities where required by law"
-            ]
+                "<strong>Expiry:</strong> After closure, retained per statutory timelines, then archived/anonymised/deleted as per policy",
+              processors: [
+                "The Financial Institution (Data Fiduciary)",
+                "Authorised service providers under safeguards",
+                "Regulators/authorities where required by law"
+              ]
+            }
           },
 
           {
             groupId: "savings_comms",
-            heading: "Statements & essential alerts (Locked)",
+            heading: "Statements & essential alerts",
             statusText: "Mandatory (locked)",
             toggleKey: "savings_comms",
             locked: true,
-            sections: [
-              { label: "Purpose", bullets: [
-                "Send statements, transaction alerts, and service notifications",
-                "Support account servicing and grievance communications"
-              ]},
-              { label: "Data we will use", bullets: [
-                "Contact details (mobile/email)",
-                "Account and transaction references"
-              ]},
-              { label: "Retention", text:
-                "<strong>Minimum:</strong> While you use the service<br/>" +
-                "<strong>Maximum:</strong> As required by law/audit needs<br/>" +
-                "<strong>Expiry:</strong> As per statutory timelines after closure"
-              }
+            purposeBullets: [
+              "Send statements, transaction alerts, and essential service/security notifications",
+              "Support servicing and grievance communications"
             ],
-            processors: [
-              "Messaging/email providers (as authorised processors)",
-              "Bank servicing systems"
-            ]
+            details: {
+              dataBullets: [
+                "Contact (mobile/email)",
+                "Account and transaction references (for alerts/statements)"
+              ],
+              sharedWithBullets: [
+                "SMS/email delivery providers (authorised processors)",
+                "Bank servicing systems"
+              ],
+              retentionHtml:
+                "<strong>Minimum:</strong> While you use the service<br/>" +
+                "<strong>Maximum:</strong> As required for audit/disputes under applicable laws<br/>" +
+                "<strong>Expiry:</strong> As per statutory timelines after closure",
+              processors: [
+                "Messaging/email providers (as authorised processors)",
+                "Bank servicing systems"
+              ]
+            }
           },
 
           {
@@ -337,23 +326,25 @@
             statusText: "Optional (toggle)",
             toggleKey: "savings_marketing",
             locked: false,
-            hint: "If you turn this off, we will stop using your data for marketing going forward. Core services are not affected.",
-            sections: [
-              { label: "Purpose", bullets: [
-                "Send product offers and promotional communications"
-              ]},
-              { label: "Data we will use", bullets: [
-                "Basic profile and account relationship signals (no sensitive data for targeting)"
-              ]},
-              { label: "Retention", text:
+            hint: "Turning this off stops marketing use going forward. Core services are not affected.",
+            purposeBullets: [
+              "Send product offers and promotional communications"
+            ],
+            details: {
+              dataBullets: [
+                "Basic profile and relationship signals (example: products held; not sensitive data for targeting)"
+              ],
+              sharedWithBullets: [
+                "Communication tools (CRM/SMS/email) as authorised processors"
+              ],
+              retentionHtml:
                 "<strong>Minimum:</strong> While consent is active<br/>" +
                 "<strong>Maximum:</strong> As per internal policy<br/>" +
-                "<strong>Expiry:</strong> On withdrawal (processing stops going forward)"
-              }
-            ],
-            processors: [
-              "CRM/communication tools (authorised processors)"
-            ]
+                "<strong>Expiry:</strong> On withdrawal (processing stops going forward)",
+              processors: [
+                "CRM/communication tools (authorised processors)"
+              ]
+            }
           },
 
           {
@@ -363,22 +354,24 @@
             toggleKey: "savings_analytics",
             locked: false,
             hint: "Used only to improve experience. You can withdraw anytime.",
-            sections: [
-              { label: "Purpose", bullets: [
-                "Improve app experience and service quality (non-essential analytics)"
-              ]},
-              { label: "Data we will use", bullets: [
-                "Usage signals (e.g., feature usage, error logs) and high-level patterns"
-              ]},
-              { label: "Retention", text:
+            purposeBullets: [
+              "Improve app experience and service quality (non-essential analytics)"
+            ],
+            details: {
+              dataBullets: [
+                "Usage signals (example: feature usage, crash/error logs) and aggregated patterns"
+              ],
+              sharedWithBullets: [
+                "Authorised analytics tooling (if used) under safeguards"
+              ],
+              retentionHtml:
                 "<strong>Minimum:</strong> While consent is active<br/>" +
                 "<strong>Maximum:</strong> As per internal policy<br/>" +
-                "<strong>Expiry:</strong> On withdrawal or account closure"
-              }
-            ],
-            processors: [
-              "Authorised analytics tooling (if used) under safeguards"
-            ]
+                "<strong>Expiry:</strong> On withdrawal or account closure",
+              processors: [
+                "Authorised analytics tooling (if used) under safeguards"
+              ]
+            }
           }
         ],
         disclosures: [
@@ -386,223 +379,10 @@
             title: "Automated checks (fraud & security)",
             text: "We may use automated checks for fraud detection, suspicious activity monitoring, and security controls. Profiling for marketing offers is only done if you opt-in to Offers & promotions."
           }
-        ],
-        defaultExpanded: false
+        ]
       }
     ];
 
-    // -----------------------------
-    // UI rendering (same patterns as your index)
-    // -----------------------------
     const cardsEl = document.getElementById("cards");
     const toastEl = document.getElementById("toast");
-    const toastText = document.getElementById("toastText");
-
-    function showToast(msg){
-      toastText.textContent = msg;
-      toastEl.classList.add("show");
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=> toastEl.classList.remove("show"), 1500);
-    }
-
-    function chip(label, value){
-      return `<span class="chip"><span style="opacity:.8">${label}:</span> <strong>${value}</strong></span>`;
-    }
-
-    function toggleButton(consentKey, lockedOverride){
-      const c = state.consents[consentKey];
-      const locked = lockedOverride ?? c.locked;
-      const enabled = !!c.enabled;
-      const disabled = locked;
-      const status = locked ? "Locked ON (mandatory)" : (enabled ? "ON" : "OFF");
-      return `
-        <div class="toggleWrap">
-          <div class="status">${status}</div>
-          <button class="toggle" role="switch" aria-checked="${enabled}" data-key="${consentKey}" ${disabled ? "disabled" : ""} aria-label="${consentKey}">
-            <span class="knob"></span>
-          </button>
-        </div>
-      `;
-    }
-
-    function renderGroup(group){
-      const isConditional = !!group.conditional;
-      const visible = isConditional ? group.visibleWhen() : true;
-      if(!visible) return "";
-
-      const statusChip = group.locked
-        ? chip("Status","Mandatory (locked)")
-        : chip("Status","Optional (toggle)");
-
-      const headRight = toggleButton(group.toggleKey, group.locked);
-
-      const sectionsHtml = group.sections.map(sec => {
-        if(sec.bullets){
-          return `
-            <div>
-              <div class="label">${sec.label}</div>
-              <ul>${sec.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
-            </div>
-          `;
-        }
-        return `
-          <div>
-            <div class="label">${sec.label}</div>
-            <div class="small">${sec.text}</div>
-          </div>
-        `;
-      }).join("");
-
-      const processorsHtml = (group.processors && group.processors.length)
-        ? `
-          <div class="section">
-            <details>
-              <summary>Who processes this?</summary>
-              <div class="content">${group.processors.map(p => `• ${p}`).join("<br/>")}</div>
-            </details>
-          </div>
-        `
-        : "";
-
-      const hintHtml = group.hint ? `<div class="hint">${group.hint}</div>` : "";
-
-      return `
-        <div class="subcard" data-group="${group.groupId}">
-          <div class="subhead">
-            <div>
-              <h3>${group.heading}</h3>
-              <div class="submeta">${statusChip}</div>
-            </div>
-            ${headRight}
-          </div>
-
-          <div class="row section">
-            ${sectionsHtml}
-          </div>
-
-          ${processorsHtml}
-          ${hintHtml}
-        </div>
-      `;
-    }
-
-    function renderCard(card){
-      if(card.showWhen && !card.showWhen()) return "";
-
-      const headChips = (card.chips || []).map(c => chip(c.label, c.value)).join("");
-      const groupsHtml = (card.groups || []).map(renderGroup).join("");
-      const disclosuresHtml = (card.disclosures || []).map(d => `
-        <div class="section">
-          <details>
-            <summary>${d.title}</summary>
-            <div class="content">${d.text}</div>
-          </details>
-        </div>
-      `).join("");
-
-      const headRight = `
-        <div class="toggleWrap">
-          <div class="status">${(card.groups||[]).some(g=>!g.locked) ? "Contains optional controls" : "Mandatory only"}</div>
-          <div style="display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px">
-            <span style="opacity:.85">Tap to review</span>
-          </div>
-        </div>
-      `;
-
-      return `
-        <article class="card" data-card="${card.id}">
-          <div class="cardhead">
-            <div class="cardtitle">
-              <div class="ico">${card.icon}</div>
-              <div style="min-width:0">
-                <h2>${card.title}</h2>
-                <div class="meta">${headChips}</div>
-              </div>
-            </div>
-            ${headRight}
-          </div>
-
-          <div class="body" data-body="1" style="display:${card.defaultExpanded ? "block" : "none"}">
-            ${disclosuresHtml}
-            ${groupsHtml}
-          </div>
-        </article>
-      `;
-    }
-
-    function wireInteractions(){
-      document.querySelectorAll(".card").forEach(cardEl => {
-        const head = cardEl.querySelector(".cardhead");
-        head.addEventListener("click", (e) => {
-          if(e.target.closest(".toggle")) return;
-          const body = cardEl.querySelector('.body[data-body="1"]');
-          if(!body) return;
-          const isOpen = body.style.display !== "none";
-          body.style.display = isOpen ? "none" : "block";
-        });
-      });
-
-      document.querySelectorAll(".toggle").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const key = btn.dataset.key;
-          const c = state.consents[key];
-          if(!c || c.locked) return;
-          c.enabled = !c.enabled;
-          btn.setAttribute("aria-checked", c.enabled ? "true" : "false");
-          btn.closest(".toggleWrap").querySelector(".status").textContent = c.enabled ? "ON" : "OFF";
-          showToast(`${labelFor(key)} set to ${c.enabled ? "ON" : "OFF"}`);
-        });
-      });
-    }
-
-    function labelFor(key){
-      const map = {
-        savings_marketing: "Savings — Offers & promotions",
-        savings_analytics: "Savings — Service improvement analytics",
-      };
-      return map[key] || key;
-    }
-
-    function setAllOptional(enabled){
-      let changed = 0;
-      Object.entries(state.consents).forEach(([k,v])=>{
-        if(v.type === "optional" && !v.locked){
-          if(v.enabled !== enabled){
-            v.enabled = enabled;
-            changed++;
-          }
-        }
-      });
-      render();
-      showToast(`${enabled ? "Accepted" : "Denied"} all optional (${changed} updated)`);
-    }
-
-    document.getElementById("acceptAll").addEventListener("click", ()=> setAllOptional(true));
-    document.getElementById("denyAll").addEventListener("click", ()=> setAllOptional(false));
-    document.getElementById("expandAll").addEventListener("click", ()=>{
-      document.querySelectorAll('.body[data-body="1"]').forEach(b=> b.style.display = "block");
-      showToast("Expanded all cards");
-    });
-    document.getElementById("collapseAll").addEventListener("click", ()=>{
-      document.querySelectorAll('.body[data-body="1"]').forEach(b=> b.style.display = "none");
-      showToast("Collapsed all cards");
-    });
-
-    // Demo: Press S to toggle whether customer holds savings (for future multi-product patterns)
-    document.addEventListener("keydown", (e)=>{
-      if(e.key.toLowerCase() === "s"){
-        state.holdings.savings = !state.holdings.savings;
-        render();
-        showToast(`Savings holding: ${state.holdings.savings ? "YES" : "NO"}`);
-      }
-    });
-
-    function render(){
-      cardsEl.innerHTML = cardsModel.map(renderCard).join("");
-      wireInteractions();
-    }
-
-    render();
-  </script>
-</body>
-</html>
+    const toastText = document.getEleme
