@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DPDP CMP — Insurance Distribution Notice</title>
+
+  <style>
+    :root{
+      --bg:#0b1220; --text:#e6e9f2; --muted:#a9b2c7; --line:rgba(255,255,255,.10);
+      --chip:rgba(255,255,255,.09); --good:#22c55e; --warn:#f59e0b;
+      --accent:#60a5fa; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.25), transparent 55%),var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 64px}
+    header{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .brand{display:flex;gap:12px}
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background:linear-gradient(135deg,#60a5fa,#a78bfa);
+      display:grid;place-items:center;font-weight:800;
+    }
+    h1{margin:0;font-size:18px;font-weight:800}
+    .subtitle{margin:6px 0 0;color:var(--muted);font-size:13px;max-width:760px}
+
+    .inlinebar{margin-top:10px;font-size:12.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+    .select{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:6px 8px;color:var(--text)}
+
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--text);
+      padding:10px 12px;border-radius:14px;font-size:13px;cursor:pointer
+    }
+    .btn.primary{background:rgba(96,165,250,.18)}
+    .btn.danger{background:rgba(239,68,68,.12)}
+
+    .pillrow{display:flex;gap:8px;margin:14px 0}
+    .pill{background:var(--chip);border:1px solid var(--line);padding:8px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .dot{width:8px;height:8px;border-radius:999px;background:#aaa;display:inline-block;margin-right:6px}
+    .good{background:var(--good)} .accent{background:var(--accent)} .warn{background:var(--warn)}
+
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.05);overflow:hidden}
+    .cardhead{padding:14px;cursor:pointer;display:flex;justify-content:space-between}
+    .cardhead h2{margin:0;font-size:14px;font-weight:800}
+    .body{display:none;padding:14px;border-top:1px solid var(--line);background:rgba(15,23,42,.35)}
+
+    .subcard{border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:12px}
+    .subhead{display:flex;justify-content:space-between;align-items:center}
+    .subhead h3{margin:0;font-size:13px;font-weight:800}
+    .status{font-size:11.5px;color:var(--muted)}
+    .toggle{
+      width:52px;height:30px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(255,255,255,.08);position:relative
+    }
+    .toggle[aria-checked="true"]{background:rgba(34,197,94,.24)}
+    .knob{width:24px;height:24px;border-radius:999px;background:#fff;position:absolute;top:3px;left:3px}
+    .toggle[aria-checked="true"] .knob{transform:translateX(22px)}
+
+    ul{padding-left:16px;font-size:13px}
+    li{margin:4px 0}
+    .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .small{font-size:12.5px;line-height:1.45}
+    .hint{font-size:12px;color:var(--muted);margin-top:8px}
+
+    details{border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:10px}
+    summary{cursor:pointer;font-size:13px;font-weight:700}
+
+    .footer{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:rgba(255,255,255,.05)}
+    .footer h4{margin:0 0 8px;font-size:13px;font-weight:900}
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">DP</div>
+    <div>
+      <h1>Insurance Distribution — Product Notice</h1>
+      <p class="subtitle">
+        Applicable where the Bank/NBFC acts as a Corporate Agent distributing insurance products.
+      </p>
+      <div class="inlinebar">
+        <span><strong>Data Fiduciary:</strong> [Bank/NBFC Legal Name]</span>
+        <span>•</span>
+        <span><strong>Notice:</strong> INSURANCE_NOTICE • <strong>Version:</strong> v1.0</span>
+        <span>•</span>
+        <label>Language:</label>
+        <select class="select">
+          <option>English</option><option>हिंदी</option><option>मराठी</option>
+        </select>
+        <span>•</span><a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn primary">Accept all optional</button>
+    <button class="btn danger">Deny all optional</button>
+  </div>
+</header>
+
+<div class="pillrow">
+  <div class="pill"><span class="dot good"></span>Mandatory</div>
+  <div class="pill"><span class="dot accent"></span>Optional</div>
+  <div class="pill"><span class="dot warn"></span>Details available</div>
+</div>
+
+<div class="card">
+  <div class="cardhead" onclick="document.querySelector('.body').style.display =
+    document.querySelector('.body').style.display==='block'?'none':'block'">
+    <h2>Insurance Distribution (Corporate Agent)</h2>
+    <span class="status">Tap to review</span>
+  </div>
+
+  <div class="body">
+
+    <details>
+      <summary>Consent record & audit trail</summary>
+      <div class="small">
+        A secure record of your consent, including purpose, timestamp and notice version,
+        is maintained and can be requested.
+      </div>
+    </details>
+
+    <details>
+      <summary>Role clarity — Bank vs Insurer</summary>
+      <div class="small">
+        The Bank/NBFC acts as a <strong>Corporate Agent</strong>. The insurer is an independent
+        Data Fiduciary for policy issuance and servicing.
+      </div>
+    </details>
+
+    <!-- CORE DISTRIBUTION -->
+    <div class="subcard">
+      <div class="subhead">
+        <h3>Insurance sourcing, proposal & compliance</h3>
+        <span class="status">Mandatory</span>
+      </div>
+      <ul>
+        <li>Collect proposal details and KYC for insurance sourcing</li>
+        <li>Share necessary information with chosen insurer</li>
+        <li>Meet IRDAI, AML and audit obligations</li>
+      </ul>
+      <div class="small">
+        <strong>Withdrawal impact:</strong> Required to proceed with insurance proposal.
+      </div>
+
+      <details>
+        <summary>Details</summary>
+        <div class="small">
+          <strong>Data used:</strong> Identity, contact, nominee details, risk disclosures, medical declarations (if applicable).<br/>
+          <strong>Shared with:</strong> Selected insurer (independent Data Fiduciary), regulators where required.<br/>
+          <strong>Retention:</strong> As per IRDAI and financial recordkeeping laws. See Retention Policy.
+        </div>
+      </details>
+    </div>
+
+    <!-- POLICY SERVICING -->
+    <div class="subcard">
+      <div class="subhead">
+        <h3>Policy servicing support & essential communication</h3>
+        <span class="status">Mandatory</span>
+      </div>
+      <ul>
+        <li>Assist with servicing requests routed to insurer</li>
+        <li>Send essential updates and acknowledgements</li>
+      </ul>
+      <div class="small">
+        Mandatory for policy lifecycle support.
+      </div>
+    </div>
+
+    <!-- OPTIONAL OFFERS -->
+    <div class="subcard">
+      <div class="subhead">
+        <h3>Insurance offers & cross-sell</h3>
+        <div class="toggle" aria-checked="false"><span class="knob"></span></div>
+      </div>
+      <ul>
+        <li>Share insurance offers and renewal reminders</li>
+      </ul>
+      <div class="small">
+        Optional. You can withdraw anytime without affecting your policy.
+      </div>
+
+      <details>
+        <summary>Details</summary>
+        <div class="small">
+          <strong>Retention:</strong> While consent is active; stops on withdrawal.<br/>
+          <strong>Enforcement:</strong> Recorded independently per purpose.
+        </div>
+      </details>
+    </div>
+
+  </div>
+</div>
+
+<section class="footer">
+  <h4>Your Rights</h4>
+  <ul>
+    <li>Access and correction of personal data</li>
+    <li>Withdraw optional consent</li>
+    <li>Grievance redressal</li>
+  </ul>
+  <div class="small">
+    <strong>DPO / Grievance Officer:</strong> [Contact details]
+  </div>
+</section>
+
+</div>
+</body>
+</html>
