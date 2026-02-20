@@ -3,14 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DPDP CMP — Savings Account Notice (Product-Specific)</title>
+  <title>DPDP CMP — Savings Account Notice</title>
 
-  <!-- Same look & feel as your consolidated demo -->
   <style>
     :root{
       --bg:#0b1220;
-      --card:#111a2e;
-      --card2:#0f172a;
       --text:#e6e9f2;
       --muted:#a9b2c7;
       --line:rgba(255,255,255,.10);
@@ -26,13 +23,13 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
       background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.25), transparent 55%),
                   radial-gradient(1000px 500px at 90% 0%, rgba(167,139,250,.18), transparent 50%),
                   var(--bg);
       color:var(--text);
     }
-    .wrap{max-width: 980px;margin: 0 auto;padding: 28px 18px 64px;}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 64px;}
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;}
     .brand{display:flex;gap:12px;align-items:center;}
     .logo{
@@ -42,8 +39,8 @@
       display:grid;place-items:center;
       font-weight:800;letter-spacing:.5px;
     }
-    h1{font-size: 18px;margin:0 0 6px;font-weight:800;}
-    .subtitle{margin:0;color:var(--muted);font-size: 13px;line-height:1.4;max-width: 680px;}
+    h1{font-size:18px;margin:0 0 6px;font-weight:800;}
+    .subtitle{margin:0;color:var(--muted);font-size:13px;line-height:1.4;max-width:680px;}
 
     .toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
     .btn{
@@ -51,7 +48,7 @@
       background: rgba(255,255,255,.06);
       color:var(--text);
       padding:10px 12px;
-      border-radius: 14px;
+      border-radius:14px;
       cursor:pointer;
       font-weight:650;
       font-size:13px;
@@ -63,7 +60,7 @@
     .btn.primary{border:1px solid rgba(96,165,250,.35);background: rgba(96,165,250,.18);}
     .btn.danger{border:1px solid rgba(239,68,68,.35);background: rgba(239,68,68,.12);}
 
-    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin: 14px 0 18px;}
+    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px;}
     .pill{
       background: var(--chip);
       border:1px solid var(--line);
@@ -78,7 +75,8 @@
     .dot.accent{background: var(--accent)}
     .dot.warn{background: var(--warn)}
 
-    .grid{display:grid;grid-template-columns: 1fr;gap: 14px;}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;}
+
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
@@ -87,85 +85,109 @@
       overflow:hidden;
     }
     .cardhead{
-      padding: 14px 14px 12px;
-      display:flex;align-items:flex-start;justify-content:space-between;gap: 12px;
+      padding:14px 14px 12px;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
       cursor:pointer;
     }
-    .cardtitle{display:flex;align-items:flex-start;gap: 10px;min-width: 0;}
+    .cardtitle{display:flex;align-items:flex-start;gap:10px;min-width:0;}
     .ico{
-      width: 34px;height:34px;border-radius: 12px;
+      width:34px;height:34px;border-radius:12px;
       background: rgba(255,255,255,.07);
       border:1px solid var(--line);
       display:grid;place-items:center;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
-    .cardtitle h2{margin:0;font-size: 14px;font-weight: 850;line-height:1.2;}
-    .meta{margin-top: 6px;display:flex;gap: 8px;flex-wrap:wrap;align-items:center;}
+    .cardtitle h2{margin:0;font-size:14px;font-weight:850;line-height:1.2;}
+    .meta{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
     .chip{
-      font-size: 12px;color: var(--muted);
+      font-size:12px;color: var(--muted);
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
-      padding: 6px 8px;border-radius: 999px;
-      display:inline-flex;align-items:center;gap: 6px;
+      padding:6px 8px;border-radius:999px;
+      display:inline-flex;align-items:center;gap:6px;
     }
     .chip strong{color: var(--text); font-weight:750}
 
-    .toggleWrap{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex: 0 0 auto;}
-    .status{font-size: 11.5px;color: var(--muted);text-align:right;max-width: 260px;line-height:1.2;}
+    .toggleWrap{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:0 0 auto;}
+    .status{font-size:11.5px;color: var(--muted);text-align:right;max-width:260px;line-height:1.2;}
+
     .toggle{
-      position:relative;width: 52px;height: 30px;border-radius: 999px;
+      position:relative;width:52px;height:30px;border-radius:999px;
       border:1px solid var(--line);background: rgba(255,255,255,.08);
       cursor:pointer;transition: background .15s ease, border .15s ease;outline:none;
     }
     .toggle[aria-checked="true"]{background: rgba(34,197,94,.24);border-color: rgba(34,197,94,.35);}
     .toggle[disabled]{cursor:not-allowed;opacity:.65;filter:saturate(.7);}
     .knob{
-      position:absolute;top: 3px;left: 3px;width: 24px;height: 24px;border-radius: 999px;
-      background: rgba(255,255,255,.85);transition: transform .15s ease;box-shadow: 0 6px 14px rgba(0,0,0,.25);
+      position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:999px;
+      background: rgba(255,255,255,.85);transition: transform .15s ease;
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
     }
     .toggle[aria-checked="true"] .knob{transform: translateX(22px);}
 
-    .body{padding: 0 14px 14px;border-top: 1px solid var(--line);background: rgba(15,23,42,.35);}
-    .subcard{border:1px solid var(--line);background: rgba(255,255,255,.045);border-radius: 16px;padding: 12px;margin-top: 12px;}
-    .subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom: 8px;}
-    .subhead h3{margin:0;font-size: 13px;font-weight: 850;}
-    .submeta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-    .hint{color: var(--muted);font-size: 12px;line-height:1.4;margin-top: 8px;}
+    .body{
+      padding: 0 14px 14px;
+      border-top: 1px solid var(--line);
+      background: rgba(15,23,42,.35);
+      display:none;
+    }
 
-    .row{display:grid;grid-template-columns: 1fr;gap: 10px;}
-    @media (min-width: 760px){.row{grid-template-columns: 1fr 1fr;gap: 12px;}}
-    .label{color: var(--muted);font-size: 12px;margin-bottom: 6px;}
-    ul{margin: 0;padding-left: 16px;color: var(--text);font-size: 13px;line-height: 1.45;}
-    li{margin: 4px 0}
-    .small{font-size: 12.5px;color: var(--text);line-height: 1.45;}
+    .subcard{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.045);
+      border-radius:16px;
+      padding:12px;
+      margin-top:12px;
+    }
+    .subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+    .subhead h3{margin:0;font-size:13px;font-weight:850;}
+    .submeta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+    .hint{color: var(--muted);font-size:12px;line-height:1.4;margin-top:8px;}
+
+    .row{display:grid;grid-template-columns:1fr;gap:10px;}
+    @media (min-width: 760px){.row{grid-template-columns:1fr 1fr;gap:12px;}}
+    .label{color: var(--muted);font-size:12px;margin-bottom:6px;}
+    ul{margin:0;padding-left:16px;color: var(--text);font-size:13px;line-height:1.45;}
+    li{margin:4px 0}
+    .small{font-size:12.5px;color: var(--text);line-height:1.45;}
 
     details{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
-      border-radius: 14px;
-      padding: 10px 12px;
-      margin-top: 10px;
+      border-radius:14px;
+      padding:10px 12px;
+      margin-top:10px;
     }
     details summary{
-      cursor:pointer;font-weight: 750;font-size: 13px;color: var(--text);
+      cursor:pointer;font-weight:750;font-size:13px;color: var(--text);
       list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;
     }
     details summary::-webkit-details-marker{display:none}
-    .chev{color:var(--muted);font-size:12px}
-    details .content{margin-top: 10px;color: var(--muted);font-size: 12.5px;line-height: 1.55;}
+    .chev{color: var(--muted);font-size:12px}
+    details .content{margin-top:10px;color: var(--muted);font-size:12.5px;line-height:1.55;}
 
     .footer{
-      margin-top: 18px;border:1px solid var(--line);background: rgba(255,255,255,.05);
-      border-radius: var(--radius);padding: 14px;
+      margin-top:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:14px;
     }
-    .footer h4{margin:0 0 8px;font-size: 13px;font-weight: 900;}
-    .footer .cols{display:grid;grid-template-columns: 1fr;gap: 12px;}
-    @media (min-width: 820px){.footer .cols{grid-template-columns: 1fr 1fr 1fr}}
+    .footer h4{margin:0 0 8px;font-size:13px;font-weight:900;}
+    .footer .cols{display:grid;grid-template-columns:1fr;gap:12px;}
+    @media (min-width: 820px){.footer .cols{grid-template-columns:1fr 1fr 1fr}}
+
     .toast{
       position: fixed;bottom: 16px;left: 50%;transform: translateX(-50%);
-      background: rgba(17,26,46,.94);border:1px solid var(--line);border-radius: 999px;
-      padding: 10px 14px;color: var(--text);box-shadow: var(--shadow);font-size: 12.5px;
-      opacity: 0;pointer-events:none;transition: opacity .18s ease, transform .18s ease;
+      background: rgba(17,26,46,.94);
+      border:1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      font-size: 12.5px;
+      opacity: 0;pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
       display:flex;gap:10px;align-items:center;
     }
     .toast.show{opacity: 1;transform: translateX(-50%) translateY(-4px);}
@@ -199,321 +221,320 @@
       <div class="pill"><span class="dot warn"></span>Details available (no extra steps to consent)</div>
     </div>
 
-    <main class="grid" id="cards"></main>
-<main class="grid" id="cards">
-
-  <article class="card" data-card="savings">
-    <div class="cardhead">
-      <div class="cardtitle">
-        <div class="ico">🏦</div>
-        <div style="min-width:0">
-          <h2>Savings Account</h2>
-          <div class="meta">
-            <span class="chip"><span style="opacity:.8">Account ID:</span> <strong>SB •••• 4821</strong></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="toggleWrap">
-        <div class="status">Contains optional controls</div>
-        <div style="display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px">
-          <span style="opacity:.85">Tap to review</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="body" data-body="1" style="display:none">
-
-      <details style="margin-top:12px;">
-        <summary>Automated checks (fraud & security) <span class="chev">Click to expand</span></summary>
-        <div class="content">
-          We may use automated checks for fraud detection, suspicious activity monitoring, and security controls.
-          Profiling for marketing offers is only done if you opt-in to Offers & promotions.
-        </div>
-      </details>
-
-      <!-- GROUP 1: CORE (MANDATORY) -->
-      <div class="subcard" data-group="savings_core">
-        <div class="subhead">
-          <div>
-            <h3>Core account operation + compliance + security</h3>
-            <div class="submeta">
-              <span class="chip"><span style="opacity:.8">Status:</span> <strong>Mandatory (locked)</strong></span>
+    <!-- STATIC NOTICE CARD (always present) -->
+    <main class="grid" id="cards">
+      <article class="card" data-card="savings">
+        <div class="cardhead" data-action="toggle-card">
+          <div class="cardtitle">
+            <div class="ico">🏦</div>
+            <div style="min-width:0">
+              <h2>Savings Account</h2>
+              <div class="meta">
+                <span class="chip"><span style="opacity:.8">Account ID:</span> <strong>SB •••• 4821</strong></span>
+              </div>
             </div>
           </div>
 
           <div class="toggleWrap">
-            <div class="status">Locked ON (mandatory)</div>
-            <button class="toggle" role="switch" aria-checked="true" data-key="savings_core" disabled>
-              <span class="knob"></span>
-            </button>
+            <div class="status">Contains optional controls</div>
+            <div style="display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px">
+              <span style="opacity:.85">Tap to review</span>
+            </div>
           </div>
         </div>
 
-        <div class="row">
-          <div>
-            <div class="label">Purpose</div>
-            <ul>
-              <li>Open and maintain your account; process deposits/withdrawals/transfers</li>
-              <li>Meet legal/regulatory obligations (KYC/AML/audit where applicable)</li>
-              <li>Protect you through fraud detection, risk controls, and security monitoring</li>
-            </ul>
-          </div>
-          <div>
-            <div class="label">Withdrawal impact</div>
-            <div class="small">Mandatory processing is required to operate the account and meet legal obligations.</div>
-          </div>
-        </div>
+        <!-- Expandable body -->
+        <div class="body" data-body="1">
 
-        <details>
-          <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
-          <div class="content">
-            <div style="margin-bottom:10px;">
-              <div class="label">Data we will use (examples)</div>
-              <ul>
-                <li>Identity & KYC (name, date of birth, PAN; Aadhaar only where permitted)</li>
-                <li>Contact (mobile number, email, address)</li>
-                <li>Account identifiers (customer/CIF ID, account number)</li>
-                <li>Transactions (amount, date/time, counterparty/beneficiary reference, UPI/VPA where applicable)</li>
-                <li>Compliance & audit logs (KYC verification logs, consent logs, audit trail)</li>
-                <li>Digital banking/session logs (device ID, IP address, login timestamps — if enabled)</li>
-              </ul>
+          <details style="margin-top:12px;">
+            <summary>Automated checks (fraud & security) <span class="chev">Click to expand</span></summary>
+            <div class="content">
+              We may use automated checks for fraud detection, suspicious activity monitoring, and security controls.
+              Profiling for marketing offers is only done if you opt-in to Offers & promotions.
             </div>
+          </details>
 
-            <div style="margin-bottom:10px;">
-              <div class="label">Shared with (categories)</div>
-              <ul>
-                <li>Regulators/authorities (where required by law)</li>
-                <li>Authorised processors for core banking/hosting/security</li>
-                <li>Payment and messaging infrastructure providers (as needed)</li>
-                <li>Fraud/risk monitoring partners (for security controls)</li>
-              </ul>
-            </div>
+          <!-- GROUP 1: CORE (MANDATORY) -->
+          <div class="subcard" data-group="savings_core">
+            <div class="subhead">
+              <div>
+                <h3>Core account operation + compliance + security</h3>
+                <div class="submeta">
+                  <span class="chip"><span style="opacity:.8">Status:</span> <strong>Mandatory (locked)</strong></span>
+                </div>
+              </div>
 
-            <div style="margin-bottom:10px;">
-              <div class="label">Retention</div>
-              <div class="small">
-                <strong>Minimum:</strong> While your account is active<br/>
-                <strong>Maximum:</strong> As required by applicable banking/financial laws and regulators<br/>
-                <strong>Expiry:</strong> After closure, retained per statutory timelines, then archived/anonymised/deleted as per policy
+              <div class="toggleWrap">
+                <div class="status">Locked ON (mandatory)</div>
+                <button class="toggle" role="switch" aria-checked="true" data-key="savings_core" disabled>
+                  <span class="knob"></span>
+                </button>
               </div>
             </div>
 
-            <div>
-              <div class="label">Who processes this?</div>
-              <div class="small">
-                • The Financial Institution (Data Fiduciary)<br/>
-                • Authorised service providers under safeguards<br/>
-                • Regulators/authorities where required by law
+            <div class="row">
+              <div>
+                <div class="label">Purpose</div>
+                <ul>
+                  <li>Open and maintain your account; process deposits/withdrawals/transfers</li>
+                  <li>Meet legal/regulatory obligations (KYC/AML/audit where applicable)</li>
+                  <li>Protect you through fraud detection, risk controls, and security monitoring</li>
+                </ul>
               </div>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <!-- GROUP 2: ESSENTIAL COMMS (MANDATORY) -->
-      <div class="subcard" data-group="savings_comms">
-        <div class="subhead">
-          <div>
-            <h3>Statements & essential alerts</h3>
-            <div class="submeta">
-              <span class="chip"><span style="opacity:.8">Status:</span> <strong>Mandatory (locked)</strong></span>
-            </div>
-          </div>
-
-          <div class="toggleWrap">
-            <div class="status">Locked ON (mandatory)</div>
-            <button class="toggle" role="switch" aria-checked="true" data-key="savings_comms" disabled>
-              <span class="knob"></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <div class="label">Purpose</div>
-            <ul>
-              <li>Send statements, transaction alerts, and essential service/security notifications</li>
-              <li>Support servicing and grievance communications</li>
-            </ul>
-          </div>
-          <div>
-            <div class="label">Withdrawal impact</div>
-            <div class="small">Mandatory servicing communication cannot be disabled.</div>
-          </div>
-        </div>
-
-        <details>
-          <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
-          <div class="content">
-            <div style="margin-bottom:10px;">
-              <div class="label">Data we will use (examples)</div>
-              <ul>
-                <li>Contact (mobile/email)</li>
-                <li>Account and transaction references (for alerts/statements)</li>
-              </ul>
-            </div>
-
-            <div style="margin-bottom:10px;">
-              <div class="label">Shared with (categories)</div>
-              <ul>
-                <li>SMS/email delivery providers (authorised processors)</li>
-                <li>Bank servicing systems</li>
-              </ul>
-            </div>
-
-            <div style="margin-bottom:10px;">
-              <div class="label">Retention</div>
-              <div class="small">
-                <strong>Minimum:</strong> While you use the service<br/>
-                <strong>Maximum:</strong> As required for audit/disputes under applicable laws<br/>
-                <strong>Expiry:</strong> As per statutory timelines after closure
+              <div>
+                <div class="label">Withdrawal impact</div>
+                <div class="small">Mandatory processing is required to operate the account and meet legal obligations.</div>
               </div>
             </div>
 
-            <div>
-              <div class="label">Who processes this?</div>
-              <div class="small">
-                • Messaging/email providers (as authorised processors)<br/>
-                • Bank servicing systems
+            <details>
+              <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
+              <div class="content">
+                <div style="margin-bottom:10px;">
+                  <div class="label">Data we will use (examples)</div>
+                  <ul>
+                    <li>Identity & KYC (name, date of birth, PAN; Aadhaar only where permitted)</li>
+                    <li>Contact (mobile number, email, address)</li>
+                    <li>Account identifiers (customer/CIF ID, account number)</li>
+                    <li>Transactions (amount, date/time, counterparty/beneficiary reference, UPI/VPA where applicable)</li>
+                    <li>Compliance & audit logs (KYC verification logs, consent logs, audit trail)</li>
+                    <li>Digital banking/session logs (device ID, IP address, login timestamps — if enabled)</li>
+                  </ul>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                  <div class="label">Shared with (categories)</div>
+                  <ul>
+                    <li>Regulators/authorities (where required by law)</li>
+                    <li>Authorised processors for core banking/hosting/security</li>
+                    <li>Payment and messaging infrastructure providers (as needed)</li>
+                    <li>Fraud/risk monitoring partners (for security controls)</li>
+                  </ul>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                  <div class="label">Retention</div>
+                  <div class="small">
+                    <strong>Minimum:</strong> While your account is active<br/>
+                    <strong>Maximum:</strong> As required by applicable banking/financial laws and regulators<br/>
+                    <strong>Expiry:</strong> After closure, retained per statutory timelines, then archived/anonymised/deleted as per policy
+                  </div>
+                </div>
+
+                <div>
+                  <div class="label">Who processes this?</div>
+                  <div class="small">
+                    • The Financial Institution (Data Fiduciary)<br/>
+                    • Authorised service providers under safeguards<br/>
+                    • Regulators/authorities where required by law
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- GROUP 2: ESSENTIAL COMMS (MANDATORY) -->
+          <div class="subcard" data-group="savings_comms">
+            <div class="subhead">
+              <div>
+                <h3>Statements & essential alerts</h3>
+                <div class="submeta">
+                  <span class="chip"><span style="opacity:.8">Status:</span> <strong>Mandatory (locked)</strong></span>
+                </div>
+              </div>
+
+              <div class="toggleWrap">
+                <div class="status">Locked ON (mandatory)</div>
+                <button class="toggle" role="switch" aria-checked="true" data-key="savings_comms" disabled>
+                  <span class="knob"></span>
+                </button>
               </div>
             </div>
-          </div>
-        </details>
-      </div>
 
-      <!-- GROUP 3: MARKETING (OPTIONAL) -->
-      <div class="subcard" data-group="savings_marketing">
-        <div class="subhead">
-          <div>
-            <h3>Offers & promotions</h3>
-            <div class="submeta">
-              <span class="chip"><span style="opacity:.8">Status:</span> <strong>Optional (toggle)</strong></span>
-            </div>
-          </div>
-
-          <div class="toggleWrap">
-            <div class="status">OFF</div>
-            <button class="toggle" role="switch" aria-checked="false" data-key="savings_marketing">
-              <span class="knob"></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <div class="label">Purpose</div>
-            <ul>
-              <li>Send product offers and promotional communications</li>
-            </ul>
-          </div>
-          <div>
-            <div class="label">Withdrawal impact</div>
-            <div class="small">You can withdraw anytime. Core services are not affected.</div>
-          </div>
-        </div>
-
-        <details>
-          <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
-          <div class="content">
-            <div style="margin-bottom:10px;">
-              <div class="label">Data we will use (examples)</div>
-              <ul>
-                <li>Basic profile and relationship signals (not sensitive data for targeting)</li>
-              </ul>
-            </div>
-            <div style="margin-bottom:10px;">
-              <div class="label">Shared with (categories)</div>
-              <ul>
-                <li>CRM/SMS/email tools (authorised processors)</li>
-              </ul>
-            </div>
-            <div style="margin-bottom:10px;">
-              <div class="label">Retention</div>
-              <div class="small">
-                <strong>Minimum:</strong> While consent is active<br/>
-                <strong>Maximum:</strong> As per internal policy<br/>
-                <strong>Expiry:</strong> On withdrawal (processing stops going forward)
+            <div class="row">
+              <div>
+                <div class="label">Purpose</div>
+                <ul>
+                  <li>Send statements, transaction alerts, and essential service/security notifications</li>
+                  <li>Support servicing and grievance communications</li>
+                </ul>
+              </div>
+              <div>
+                <div class="label">Withdrawal impact</div>
+                <div class="small">Mandatory servicing communication cannot be disabled.</div>
               </div>
             </div>
-            <div>
-              <div class="label">Who processes this?</div>
-              <div class="small">• CRM/communication tools (authorised processors)</div>
-            </div>
-          </div>
-        </details>
 
-        <div class="hint">Turning this off stops marketing use going forward. Core services are not affected.</div>
-      </div>
+            <details>
+              <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
+              <div class="content">
+                <div style="margin-bottom:10px;">
+                  <div class="label">Data we will use (examples)</div>
+                  <ul>
+                    <li>Contact (mobile/email)</li>
+                    <li>Account and transaction references (for alerts/statements)</li>
+                  </ul>
+                </div>
 
-      <!-- GROUP 4: ANALYTICS (OPTIONAL) -->
-      <div class="subcard" data-group="savings_analytics">
-        <div class="subhead">
-          <div>
-            <h3>Non-essential service improvement analytics</h3>
-            <div class="submeta">
-              <span class="chip"><span style="opacity:.8">Status:</span> <strong>Optional (toggle)</strong></span>
-            </div>
+                <div style="margin-bottom:10px;">
+                  <div class="label">Shared with (categories)</div>
+                  <ul>
+                    <li>SMS/email delivery providers (authorised processors)</li>
+                    <li>Bank servicing systems</li>
+                  </ul>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                  <div class="label">Retention</div>
+                  <div class="small">
+                    <strong>Minimum:</strong> While you use the service<br/>
+                    <strong>Maximum:</strong> As required for audit/disputes under applicable laws<br/>
+                    <strong>Expiry:</strong> As per statutory timelines after closure
+                  </div>
+                </div>
+
+                <div>
+                  <div class="label">Who processes this?</div>
+                  <div class="small">
+                    • Messaging/email providers (as authorised processors)<br/>
+                    • Bank servicing systems
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
 
-          <div class="toggleWrap">
-            <div class="status">OFF</div>
-            <button class="toggle" role="switch" aria-checked="false" data-key="savings_analytics">
-              <span class="knob"></span>
-            </button>
-          </div>
-        </div>
+          <!-- GROUP 3: MARKETING (OPTIONAL) -->
+          <div class="subcard" data-group="savings_marketing">
+            <div class="subhead">
+              <div>
+                <h3>Offers & promotions</h3>
+                <div class="submeta">
+                  <span class="chip"><span style="opacity:.8">Status:</span> <strong>Optional (toggle)</strong></span>
+                </div>
+              </div>
 
-        <div class="row">
-          <div>
-            <div class="label">Purpose</div>
-            <ul>
-              <li>Improve app experience and service quality (non-essential analytics)</li>
-            </ul>
-          </div>
-          <div>
-            <div class="label">Withdrawal impact</div>
-            <div class="small">You can withdraw anytime. Core services are not affected.</div>
-          </div>
-        </div>
-
-        <details>
-          <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
-          <div class="content">
-            <div style="margin-bottom:10px;">
-              <div class="label">Data we will use (examples)</div>
-              <ul>
-                <li>Usage signals (feature usage, crash/error logs) and aggregated patterns</li>
-              </ul>
-            </div>
-            <div style="margin-bottom:10px;">
-              <div class="label">Shared with (categories)</div>
-              <ul>
-                <li>Authorised analytics tooling (if used) under safeguards</li>
-              </ul>
-            </div>
-            <div style="margin-bottom:10px;">
-              <div class="label">Retention</div>
-              <div class="small">
-                <strong>Minimum:</strong> While consent is active<br/>
-                <strong>Maximum:</strong> As per internal policy<br/>
-                <strong>Expiry:</strong> On withdrawal or account closure
+              <div class="toggleWrap">
+                <div class="status" data-status="savings_marketing">OFF</div>
+                <button class="toggle" role="switch" aria-checked="false" data-key="savings_marketing">
+                  <span class="knob"></span>
+                </button>
               </div>
             </div>
-            <div>
-              <div class="label">Who processes this?</div>
-              <div class="small">• Authorised analytics tooling (if used) under safeguards</div>
+
+            <div class="row">
+              <div>
+                <div class="label">Purpose</div>
+                <ul>
+                  <li>Send product offers and promotional communications</li>
+                </ul>
+              </div>
+              <div>
+                <div class="label">Withdrawal impact</div>
+                <div class="small">You can withdraw anytime. Core services are not affected.</div>
+              </div>
             </div>
+
+            <details>
+              <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
+              <div class="content">
+                <div style="margin-bottom:10px;">
+                  <div class="label">Data we will use (examples)</div>
+                  <ul>
+                    <li>Basic profile and relationship signals (not sensitive data for targeting)</li>
+                  </ul>
+                </div>
+                <div style="margin-bottom:10px;">
+                  <div class="label">Shared with (categories)</div>
+                  <ul>
+                    <li>CRM/SMS/email tools (authorised processors)</li>
+                  </ul>
+                </div>
+                <div style="margin-bottom:10px;">
+                  <div class="label">Retention</div>
+                  <div class="small">
+                    <strong>Minimum:</strong> While consent is active<br/>
+                    <strong>Maximum:</strong> As per internal policy<br/>
+                    <strong>Expiry:</strong> On withdrawal (processing stops going forward)
+                  </div>
+                </div>
+                <div>
+                  <div class="label">Who processes this?</div>
+                  <div class="small">• CRM/communication tools (authorised processors)</div>
+                </div>
+              </div>
+            </details>
+
+            <div class="hint">Turning this off stops marketing use going forward. Core services are not affected.</div>
           </div>
-        </details>
 
-        <div class="hint">Used only to improve experience. You can withdraw anytime.</div>
-      </div>
+          <!-- GROUP 4: ANALYTICS (OPTIONAL) -->
+          <div class="subcard" data-group="savings_analytics">
+            <div class="subhead">
+              <div>
+                <h3>Non-essential service improvement analytics</h3>
+                <div class="submeta">
+                  <span class="chip"><span style="opacity:.8">Status:</span> <strong>Optional (toggle)</strong></span>
+                </div>
+              </div>
 
-    </div>
-  </article>
+              <div class="toggleWrap">
+                <div class="status" data-status="savings_analytics">OFF</div>
+                <button class="toggle" role="switch" aria-checked="false" data-key="savings_analytics">
+                  <span class="knob"></span>
+                </button>
+              </div>
+            </div>
 
-</main>
+            <div class="row">
+              <div>
+                <div class="label">Purpose</div>
+                <ul>
+                  <li>Improve app experience and service quality (non-essential analytics)</li>
+                </ul>
+              </div>
+              <div>
+                <div class="label">Withdrawal impact</div>
+                <div class="small">You can withdraw anytime. Core services are not affected.</div>
+              </div>
+            </div>
+
+            <details>
+              <summary>Details (data used, sharing, retention, processors) <span class="chev">Click to expand</span></summary>
+              <div class="content">
+                <div style="margin-bottom:10px;">
+                  <div class="label">Data we will use (examples)</div>
+                  <ul>
+                    <li>Usage signals (feature usage, crash/error logs) and aggregated patterns</li>
+                  </ul>
+                </div>
+                <div style="margin-bottom:10px;">
+                  <div class="label">Shared with (categories)</div>
+                  <ul>
+                    <li>Authorised analytics tooling (if used) under safeguards</li>
+                  </ul>
+                </div>
+                <div style="margin-bottom:10px;">
+                  <div class="label">Retention</div>
+                  <div class="small">
+                    <strong>Minimum:</strong> While consent is active<br/>
+                    <strong>Maximum:</strong> As per internal policy<br/>
+                    <strong>Expiry:</strong> On withdrawal or account closure
+                  </div>
+                </div>
+                <div>
+                  <div class="label">Who processes this?</div>
+                  <div class="small">• Authorised analytics tooling (if used) under safeguards</div>
+                </div>
+              </div>
+            </details>
+
+            <div class="hint">Used only to improve experience. You can withdraw anytime.</div>
+          </div>
+
+        </div>
+      </article>
+    </main>
 
     <section class="footer">
       <h4>Your Rights</h4>
@@ -545,158 +566,62 @@
   <div class="toast" id="toast"><span class="dot accent"></span><span id="toastText">Updated.</span></div>
 
   <script>
-    const state = {
-      consents: {
-        savings_core:      { type: "mandatory", enabled: true,  locked: true },
-        savings_comms:     { type: "mandatory", enabled: true,  locked: true },
-        savings_marketing: { type: "optional",  enabled: false, locked: false },
-        savings_analytics: { type: "optional",  enabled: false, locked: false },
-      }
-    };
-
-    const cardsModel = [
-      {
-        id: "savings",
-        icon: "🏦",
-        title: "Savings Account",
-        chips: [{ label: "Account ID", value: "SB •••• 4821" }],
-        defaultExpanded: false,
-        groups: [
-          {
-            groupId: "savings_core",
-            heading: "Core account operation + compliance + security",
-            statusText: "Mandatory (locked)",
-            toggleKey: "savings_core",
-            locked: true,
-
-            // Keep the visible part short: only Purpose shown upfront
-            purposeBullets: [
-              "Open and maintain your account; process deposits/withdrawals/transfers",
-              "Meet legal/regulatory obligations (KYC/AML/audit where applicable)",
-              "Protect you through fraud detection, risk controls, and security monitoring"
-            ],
-
-            // Put dense content inside one expander (minimal click impact)
-            details: {
-              dataBullets: [
-                "Identity & KYC (examples: name, date of birth, PAN; Aadhaar only where permitted)",
-                "Contact (mobile number, email, address)",
-                "Account identifiers (customer/CIF ID, account number)",
-                "Transactions (amount, date/time, counterparty/beneficiary reference, UPI/VPA where applicable)",
-                "Compliance & audit logs (KYC verification logs, consent logs, audit trail)",
-                "Digital banking/session logs (device ID, IP address, login timestamps — if enabled)"
-              ],
-              sharedWithBullets: [
-                "Regulators/authorities (where required by law)",
-                "Authorised processors for core banking/hosting/security",
-                "Payment and messaging infrastructure providers (as needed for service delivery)",
-                "Fraud/risk monitoring partners (for security controls)"
-              ],
-              retentionHtml:
-                "<strong>Minimum:</strong> While your account is active<br/>" +
-                "<strong>Maximum:</strong> As required by applicable banking/financial laws and regulators<br/>" +
-                "<strong>Expiry:</strong> After closure, retained per statutory timelines, then archived/anonymised/deleted as per policy",
-              processors: [
-                "The Financial Institution (Data Fiduciary)",
-                "Authorised service providers under safeguards",
-                "Regulators/authorities where required by law"
-              ]
-            }
-          },
-
-          {
-            groupId: "savings_comms",
-            heading: "Statements & essential alerts",
-            statusText: "Mandatory (locked)",
-            toggleKey: "savings_comms",
-            locked: true,
-            purposeBullets: [
-              "Send statements, transaction alerts, and essential service/security notifications",
-              "Support servicing and grievance communications"
-            ],
-            details: {
-              dataBullets: [
-                "Contact (mobile/email)",
-                "Account and transaction references (for alerts/statements)"
-              ],
-              sharedWithBullets: [
-                "SMS/email delivery providers (authorised processors)",
-                "Bank servicing systems"
-              ],
-              retentionHtml:
-                "<strong>Minimum:</strong> While you use the service<br/>" +
-                "<strong>Maximum:</strong> As required for audit/disputes under applicable laws<br/>" +
-                "<strong>Expiry:</strong> As per statutory timelines after closure",
-              processors: [
-                "Messaging/email providers (as authorised processors)",
-                "Bank servicing systems"
-              ]
-            }
-          },
-
-          {
-            groupId: "savings_marketing",
-            heading: "Offers & promotions",
-            statusText: "Optional (toggle)",
-            toggleKey: "savings_marketing",
-            locked: false,
-            hint: "Turning this off stops marketing use going forward. Core services are not affected.",
-            purposeBullets: [
-              "Send product offers and promotional communications"
-            ],
-            details: {
-              dataBullets: [
-                "Basic profile and relationship signals (example: products held; not sensitive data for targeting)"
-              ],
-              sharedWithBullets: [
-                "Communication tools (CRM/SMS/email) as authorised processors"
-              ],
-              retentionHtml:
-                "<strong>Minimum:</strong> While consent is active<br/>" +
-                "<strong>Maximum:</strong> As per internal policy<br/>" +
-                "<strong>Expiry:</strong> On withdrawal (processing stops going forward)",
-              processors: [
-                "CRM/communication tools (authorised processors)"
-              ]
-            }
-          },
-
-          {
-            groupId: "savings_analytics",
-            heading: "Non-essential service improvement analytics",
-            statusText: "Optional (toggle)",
-            toggleKey: "savings_analytics",
-            locked: false,
-            hint: "Used only to improve experience. You can withdraw anytime.",
-            purposeBullets: [
-              "Improve app experience and service quality (non-essential analytics)"
-            ],
-            details: {
-              dataBullets: [
-                "Usage signals (example: feature usage, crash/error logs) and aggregated patterns"
-              ],
-              sharedWithBullets: [
-                "Authorised analytics tooling (if used) under safeguards"
-              ],
-              retentionHtml:
-                "<strong>Minimum:</strong> While consent is active<br/>" +
-                "<strong>Maximum:</strong> As per internal policy<br/>" +
-                "<strong>Expiry:</strong> On withdrawal or account closure",
-              processors: [
-                "Authorised analytics tooling (if used) under safeguards"
-              ]
-            }
-          }
-        ],
-        disclosures: [
-          {
-            title: "Automated checks (fraud & security)",
-            text: "We may use automated checks for fraud detection, suspicious activity monitoring, and security controls. Profiling for marketing offers is only done if you opt-in to Offers & promotions."
-          }
-        ]
-      }
-    ];
-
-    const cardsEl = document.getElementById("cards");
+    // ---------- helpers ----------
     const toastEl = document.getElementById("toast");
-    const toastText = document.getEleme
+    const toastText = document.getElementById("toastText");
+    function showToast(msg){
+      toastText.textContent = msg;
+      toastEl.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=> toastEl.classList.remove("show"), 1400);
+    }
+    function setSwitch(btn, on){
+      btn.setAttribute("aria-checked", on ? "true" : "false");
+      const key = btn.dataset.key;
+      const statusEl = document.querySelector(`[data-status="${key}"]`);
+      if(statusEl) statusEl.textContent = on ? "ON" : "OFF";
+    }
+
+    // ---------- expandable card ----------
+    document.querySelectorAll('[data-action="toggle-card"]').forEach(head => {
+      head.addEventListener("click", (e) => {
+        // Don't toggle card if clicking a switch
+        if(e.target.closest(".toggle")) return;
+        const card = head.closest(".card");
+        const body = card.querySelector('.body[data-body="1"]');
+        const isOpen = body.style.display !== "none";
+        body.style.display = isOpen ? "none" : "block";
+      });
+    });
+
+    // ---------- switches ----------
+    document.querySelectorAll(".toggle").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if(btn.disabled) return;
+        const on = btn.getAttribute("aria-checked") !== "true";
+        setSwitch(btn, on);
+        showToast(`${btn.dataset.key.replaceAll("_"," ")} set to ${on ? "ON" : "OFF"}`);
+      });
+    });
+
+    // ---------- toolbar actions ----------
+    document.getElementById("acceptAll").addEventListener("click", () => {
+      document.querySelectorAll('.toggle[data-key="savings_marketing"], .toggle[data-key="savings_analytics"]').forEach(b => setSwitch(b, true));
+      showToast("Accepted all optional");
+    });
+    document.getElementById("denyAll").addEventListener("click", () => {
+      document.querySelectorAll('.toggle[data-key="savings_marketing"], .toggle[data-key="savings_analytics"]').forEach(b => setSwitch(b, false));
+      showToast("Denied all optional");
+    });
+    document.getElementById("expandAll").addEventListener("click", () => {
+      document.querySelectorAll('.body[data-body="1"]').forEach(b => b.style.display = "block");
+      showToast("Expanded all");
+    });
+    document.getElementById("collapseAll").addEventListener("click", () => {
+      document.querySelectorAll('.body[data-body="1"]').forEach(b => b.style.display = "none");
+      showToast("Collapsed all");
+    });
+  </script>
+</body>
+</html>
